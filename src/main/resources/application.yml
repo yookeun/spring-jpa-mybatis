@@ -5,9 +5,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/yktest
+    url: jdbc:mariadb://localhost:3306/test
     username: root
-    password: Ykkim123!
+    password: 1234
     hikari:
       max-lifetime: 30000
   jpa:
