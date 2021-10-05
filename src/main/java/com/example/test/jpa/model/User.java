@@ -1,4 +1,4 @@
-package com.example.springjpamybatis.jpa.model;
+package com.example.test.jpa.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +17,8 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_no")
-    private Integer userNo;
+    @Column(name = "user_code")
+    private Integer userCode;
 
     @Column(name = "user_id", nullable = false, length = 20)
     private String userId;

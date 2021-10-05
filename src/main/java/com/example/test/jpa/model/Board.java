@@ -1,4 +1,4 @@
-package com.example.springjpamybatis.jpa.model;
+package com.example.test.jpa.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,8 +27,8 @@ public class Board {
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_no")
-    private User userNo;
+    @JoinColumn(name = "user_code")
+    private User userCode;
 
     @Column(name = "create_date", nullable = false)
     public LocalDateTime createDate;

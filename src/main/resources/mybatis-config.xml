@@ -16,7 +16,11 @@
     </settings>
 
     <typeAliases>
-        <package name="com.example.springjpamybatis.mybatis.model" />
+        <package name="com.example.test.mybatis.model" />
     </typeAliases>
+
+    <mappers>
+        <package name="com.example.test.mybatis.repository" />
+    </mappers>
 
 </configuration>

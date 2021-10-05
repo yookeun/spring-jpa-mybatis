@@ -1,4 +1,4 @@
-package com.example.springjpamybatis.mybatis.model;
+package com.example.test.mybatis.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,9 +7,10 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class User {
+public class Board {
+    private int boardNo;
+    private String title;
+    private String content;
     private int userNo;
-    private String userId;
-    private String userName;
     private LocalDateTime createDate;
 }
