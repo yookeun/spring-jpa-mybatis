@@ -13,7 +13,11 @@ public class UserJpaService {
     private final UserJpaRepository userJpaRepository;
 
     @Transactional
-    public void insertUser(User user) {
+    public void saveUser(User user) {
         userJpaRepository.save(user);
+    }
+
+    public User findUser(Integer userCode) {
+        return userJpaRepository.findByUserCode(userCode);
     }
 }

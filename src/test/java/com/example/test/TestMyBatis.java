@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
@@ -16,16 +17,13 @@ public class TestMyBatis {
     @Test
     public void Mybatis_유저등록() {
         User user = new User();
-        user.setUserId("hong3");
-        user.setUserName("홍길동3");
+        user.setUserId("hong1");
+        user.setUserName("홍길동1");
         userService.insertUser(user);
     }
 
     @Test
     public void Mybatis_유저조회() {
-        User user = new User();
-        user.setUserId("hong");
-        user.setUserName("홍길동");
         List<User> userList =  userService.selectUser();
         for (User user1: userList) {
             System.out.println(user1.getUserCode() + ", " + user1.getUserId() + ", " +  user1.getUserName());
@@ -37,6 +35,7 @@ public class TestMyBatis {
         User user = new User();
         user.setUserCode(1);
         user.setUserName("홍길동1");
+        user.setCreateDate(LocalDateTime.now());
         userService.updateUser(user);
     }
 
