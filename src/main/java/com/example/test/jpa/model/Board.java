@@ -28,7 +28,7 @@ public class Board {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_code")
-    private User userCode;
+    private User user = new User();
 
     @Column(name = "create_date", nullable = false)
     public LocalDateTime createDate;

@@ -11,6 +11,6 @@ public class Board {
     private int boardNo;
     private String title;
     private String content;
-    private int userNo;
+    private int userCode;
     private LocalDateTime createDate;
 }

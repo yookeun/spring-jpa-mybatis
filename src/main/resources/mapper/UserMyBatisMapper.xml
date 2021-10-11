@@ -2,12 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.test.mybatis.repository.UserMyBatisMapper">
-    <resultMap type="User" id="user">
-        <id column="user_no" property="userNo" javaType="Integer" />
-        <result column="user_id" property="userId" javaType="String" />
-        <result column="user_name" property="userName" javaType="String" />
-        <result column="create_date" property="createDate" javaType="java.time.LocalDateTime" />
-    </resultMap>
 
     <insert id="insertUser" parameterType="user">
         INSERT INTO user (user_id, user_name, create_date)

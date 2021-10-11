@@ -1,7 +1,9 @@
 package com.example.test.mybatis.service;
 
 
+import com.example.test.mybatis.model.Board;
 import com.example.test.mybatis.model.User;
+import com.example.test.mybatis.repository.BoardMyBatisMapper;
 import com.example.test.mybatis.repository.UserMyBatisMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,8 +14,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-public class UserMyBatisService {
+public class MyBatisService {
     private final UserMyBatisMapper userMapper;
+    private final BoardMyBatisMapper boardMapper;
 
     @Transactional
     public void insertUser(User user) {
@@ -27,6 +30,11 @@ public class UserMyBatisService {
     @Transactional
     public void updateUser(User user) {
         userMapper.updateUser(user);
+    }
+
+    @Transactional
+    public void insertBoard(Board board) {
+        boardMapper.insertBoard(board);
     }
 
 }
