@@ -8,4 +8,17 @@
         VALUES(#{title}, #{content}, #{userCode}, NOW())
     </insert>
 
+
+    <select id="selectBoard" resultType="board">
+        SELECT
+               b.board_no,
+               b.content,
+               b.title,
+               b.create_date,
+               b.user_code,
+               u.user_id,
+               u.user_name
+        FROM board b INNER JOIN user u on b.user_code = u.user_code
+    </select>
+
 </mapper>

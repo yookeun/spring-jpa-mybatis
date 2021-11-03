@@ -1,14 +1,17 @@
 package com.example.test;
 
+import com.example.test.jpa.dto.BoardDto;
 import com.example.test.jpa.model.Board;
-import com.example.test.jpa.service.JpaService;
 import com.example.test.jpa.model.User;
+import com.example.test.jpa.service.JpaService;
+import com.querydsl.core.QueryResults;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @SpringBootTest
@@ -47,16 +50,29 @@ public class TestJpa {
         Board board = new Board();
         board.setTitle("TEST2");
         board.setContent("TEST2 JPA");
-        board.getUser().setUserCode(11);
+        board.getUser().setUserCode(1);
         board.setCreateDate(LocalDateTime.now());
         service.saveBoard(board);
+    }
 
-
-
-
+    @Test
+    @Transactional
+    public void JPA_게시판리스트() {
+        List<Board> boards = service.selectBoard();
+        for(Board board : boards) {
+            System.out.println(board.getTitle() + ", " + board.getUser().getUserId() + ", " + board.getUser().getUserName());
+        }
     }
 
 
 
+    @Test
+    public void JPA_게시판리스트_2() {
+        QueryResults<BoardDto> queryResults = service.selectBoardQueryDsl();
+        List<BoardDto> boardDtos = queryResults.getResults();
+        for (BoardDto boardDto : boardDtos) {
+            System.out.println(boardDto.getTitle() + ", " + boardDto.getUserId() + ", " + boardDto.getUserName());
+        }
+    }
 
 }

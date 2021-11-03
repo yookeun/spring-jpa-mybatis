@@ -46,9 +46,17 @@ public class TestMyBatis {
         Board board = new Board();
         board.setTitle("TEST");
         board.setContent("TEST mybatis");
-        board.setUserCode(11);
+        board.setUserCode(1);
         board.setCreateDate(LocalDateTime.now());
         service.insertBoard(board);
+    }
+    
+    @Test
+    public void Mybatis_게시판리스트() {
+        List<Board> boards = service.selectBoard();
+        for(Board board : boards) {
+            System.out.println(board.getTitle() + ", " + board.getUserId() + ", " + board.getUserName());
+        }
     }
 
 }

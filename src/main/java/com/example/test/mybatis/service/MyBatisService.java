@@ -37,4 +37,10 @@ public class MyBatisService {
         boardMapper.insertBoard(board);
     }
 
+    public List<Board> selectBoard() {
+        return boardMapper.selectBoard();
+    }
+
+
+
 }
