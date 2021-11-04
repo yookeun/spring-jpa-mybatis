@@ -20,8 +20,6 @@ public class BoardDto {
     private String userId;
     private String userName;
 
-
-
     @QueryProjection
     public BoardDto(int boardNo, String title, String content, LocalDateTime createDate, int userCode, String userId, String userName) {
         this.boardNo = boardNo;
