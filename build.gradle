@@ -13,6 +13,16 @@ sourceCompatibility = '11'
 def generatedQueryDslDir = 'build/generated'
 def queryDslOutput = file(generatedQueryDslDir)
 
+
+compileJava {
+    options.compilerArgs += [
+            '-Amapstruct.suppressGeneratorTimestamp=true',
+            '-Amapstruct.suppressGeneratorVersionInfoComment=true',
+            '-Amapstruct.defaultComponentModel=spring',
+            '-Amapstruct.verbose=true'
+    ]
+}
+
 querydsl {
     library = "com.querydsl:querydsl-apt"
     jpa = true
@@ -51,7 +61,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
-
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
@@ -59,6 +68,9 @@ dependencies {
     implementation 'com.querydsl:querydsl-apt'
     implementation 'com.querydsl:querydsl-jpa'
 
+    implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+    testAnnotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
 }
 
 cleanQuerydslSourcesDir.dependsOn 'initQuerydslSourcesDir'

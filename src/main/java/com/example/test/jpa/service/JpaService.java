@@ -1,6 +1,7 @@
 package com.example.test.jpa.service;
 
 import com.example.test.jpa.dto.BoardDto;
+import com.example.test.jpa.mapper.BoardMapper;
 import com.example.test.jpa.model.Board;
 import com.example.test.jpa.model.User;
 import com.example.test.jpa.repository.BoardJpaRepository;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -18,6 +20,7 @@ import java.util.List;
 public class JpaService {
     private final UserJpaRepository userJpaRepository;
     private final BoardJpaRepository boardJpaRepository;
+    private final BoardMapper boardMapper;
 
     @Transactional
     public void saveUser(User user) {
@@ -34,4 +37,14 @@ public class JpaService {
     public List<Board> selectBoard() { return boardJpaRepository.findAll(); }
 
     public QueryResults<BoardDto> selectBoardQueryDsl() { return boardJpaRepository.selectBoardQueryDsl(); }
+
+    @Transactional
+    public Board insertBoard(BoardDto boardDto) {
+        //Board board = boardMapper.toEntity(boardDto);
+        Board board = new Board();
+        board.setTitle(boardDto.getTitle());
+        board.setContent(boardDto.getContent());
+        board.setCreateDate(LocalDateTime.now());
+        return boardJpaRepository.save(board);
+    }
 }

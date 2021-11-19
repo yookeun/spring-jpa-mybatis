@@ -10,4 +10,6 @@ import java.util.List;
 public interface BoardMyBatisMapper {
     int insertBoard(Board board);
     List<Board> selectBoard();
+    int updateBoard(Board board);
+    int deleteBoard(Board board);
 }

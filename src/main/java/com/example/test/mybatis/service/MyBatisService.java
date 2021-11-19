@@ -33,14 +33,22 @@ public class MyBatisService {
     }
 
     @Transactional
-    public void insertBoard(Board board) {
-        boardMapper.insertBoard(board);
+    public int insertBoard(Board board) {
+        return boardMapper.insertBoard(board);
     }
 
     public List<Board> selectBoard() {
         return boardMapper.selectBoard();
     }
 
+    @Transactional
+    public int updateBoard(Board board) {
+        return boardMapper.updateBoard(board);
+    }
 
+    @Transactional
+    public int deleteBoard(Board board) {
+        return boardMapper.deleteBoard(board);
+    }
 
 }
