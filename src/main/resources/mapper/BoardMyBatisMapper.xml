@@ -19,6 +19,7 @@
                u.user_id,
                u.user_name
         FROM board b INNER JOIN user u on b.user_code = u.user_code
+        ORDER BY b.board_no DESC
     </select>
 
     <update id="updateBoard" parameterType="board">
