@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
+//import com.example.test.jpa.mapper.BoardMapper;
+
 @RequiredArgsConstructor
 @Service
 @Transactional(readOnly = true)
@@ -22,7 +24,6 @@ public class JpaService {
     private final BoardJpaRepository boardJpaRepository;
     private final BoardMapper boardMapper;
 
-    @Transactional
     public void saveUser(User user) {
         userJpaRepository.save(user);
     }
@@ -31,7 +32,7 @@ public class JpaService {
         return userJpaRepository.findByUserCode(userCode);
     }
 
-    @Transactional
+
     public void saveBoard(Board board) { boardJpaRepository.save(board); }
 
     public List<Board> selectBoard() { return boardJpaRepository.findAll(); }
@@ -40,8 +41,7 @@ public class JpaService {
 
     @Transactional
     public Board insertBoard(BoardDto boardDto) {
-        //Board board = boardMapper.toEntity(boardDto);
-        Board board = new Board();
+        Board board = boardMapper.toEntity(boardDto);
         board.setTitle(boardDto.getTitle());
         board.setContent(boardDto.getContent());
         board.setCreateDate(LocalDateTime.now());

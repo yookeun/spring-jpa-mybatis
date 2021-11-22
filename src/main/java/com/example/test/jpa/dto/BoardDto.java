@@ -20,11 +20,11 @@ public class BoardDto {
     private String userId;
     private String userName;
 
-    @QueryProjection
-    public BoardDto(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
+//    @QueryProjection
+//    public BoardDto(String title, String content) {
+//        this.title = title;
+//        this.content = content;
+//    }
 
     @QueryProjection
     public BoardDto(int boardNo, String title, String content, LocalDateTime createDate, int userCode, String userId, String userName) {

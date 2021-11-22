@@ -3,6 +3,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+    id 'net.ltgt.apt-eclipse' version "0.21"
 }
 
 
@@ -10,8 +11,7 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
-def generatedQueryDslDir = 'build/generated'
-def queryDslOutput = file(generatedQueryDslDir)
+def generatedQueryDslDir = "${buildDir}/generated/src/main/java"
 
 
 compileJava {
