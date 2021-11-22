@@ -8,7 +8,6 @@
         VALUES(#{title}, #{content}, #{userCode}, NOW())
     </insert>
 
-
     <select id="selectBoard" resultType="board">
         SELECT
                b.board_no,
