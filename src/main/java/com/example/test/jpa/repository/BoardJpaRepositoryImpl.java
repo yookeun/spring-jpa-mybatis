@@ -36,6 +36,4 @@ public class BoardJpaRepositoryImpl extends QuerydslRepositorySupportExtended im
                 .orderBy(qBoard.createDate.desc())
                 .fetchResults();
     }
-
-
 }

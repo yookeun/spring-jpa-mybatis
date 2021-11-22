@@ -30,7 +30,31 @@ public class BoardJpaController {
     public ResultJson inserBoard(BoardDto boardDto) {
         ResultJson resultJson = new ResultJson();
         boolean result = false;
-        if (jpaService.insertBoard(boardDto) != null) {
+        if (jpaService.saveBoard(boardDto) != null) {
+            result = true;
+        }
+        resultJson.setSuccess(result);
+        return resultJson;
+    }
+
+    @PutMapping("/board")
+    @ResponseBody
+    public ResultJson updateBoard(BoardDto boardDto) {
+        ResultJson resultJson = new ResultJson();
+        boolean result = false;
+        if (jpaService.saveBoard(boardDto) != null) {
+            result = true;
+        }
+        resultJson.setSuccess(result);
+        return resultJson;
+    }
+
+    @DeleteMapping("/board")
+    @ResponseBody
+    public ResultJson deleteBoard(BoardDto boardDto) {
+        ResultJson resultJson = new ResultJson();
+        boolean result = false;
+        if (jpaService.deleteBoard(boardDto) != null) {
             result = true;
         }
         resultJson.setSuccess(result);

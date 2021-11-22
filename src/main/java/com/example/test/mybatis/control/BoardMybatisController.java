@@ -59,5 +59,4 @@ public class BoardMybatisController {
         resultJson.setSuccess(true);
         return resultJson;
     }
-
 }

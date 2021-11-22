@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface BoardJpaRepository extends JpaRepository<Board, Integer>, BoardJpaRepositoryCustom {
     List<Board> findAll();
+    Board findBoardByBoardNo(Integer boardNo);
 }
